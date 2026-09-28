@@ -1,0 +1,75 @@
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#79059C" },
+  listContent: { padding: 20, paddingBottom: 40 },
+  cabecalho: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 20,
+  },
+  titulo: { fontSize: 22, fontWeight: "bold", color: "#fff" },
+  subtitulo: {
+    fontSize: 13,
+    color: "rgba(255,255,255,0.75)",
+    marginTop: 2,
+  },
+  botaoAgendar: {
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  botaoAgendarTexto: { color: "#79059C", fontWeight: "bold", fontSize: 14 },
+  cabecalhoAcoes: { flexDirection: "row", gap: 8, alignItems: "center" },
+  botaoSair: {
+    backgroundColor: "rgba(255,255,255,0.2)",
+    borderWidth: 1,
+    borderColor: "#fff",
+    borderRadius: 8,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  botaoSairTexto: { color: "#fff", fontWeight: "bold", fontSize: 14 },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+  },
+  cardMedico: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 4,
+  },
+  cardInfo: { fontSize: 14, color: "#666", marginBottom: 2 },
+  cardObs: {
+    fontSize: 13,
+    color: "#888",
+    fontStyle: "italic",
+    marginTop: 4,
+  },
+  badge: {
+    alignSelf: "flex-start",
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    marginBottom: 8,
+  },
+  badgeTexto: { fontSize: 11, fontWeight: "bold" },
+  vazio: {
+    backgroundColor: "rgba(255,255,255,0.1)",
+    borderRadius: 12,
+    padding: 24,
+    alignItems: "center",
+    marginTop: 20,
+  },
+  vazioTexto: {
+    color: "#fff",
+    fontSize: 14,
+    textAlign: "center",
+    lineHeight: 22,
+  },
+});

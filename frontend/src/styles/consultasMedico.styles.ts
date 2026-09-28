@@ -1,0 +1,82 @@
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#79059C" },
+  listContent: { padding: 20, paddingBottom: 40 },
+  cabecalho: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 20,
+  },
+  titulo: { fontSize: 22, fontWeight: "bold", color: "#fff" },
+  subtitulo: {
+    fontSize: 13,
+    color: "rgba(255,255,255,0.75)",
+    marginTop: 2,
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+  },
+  cardPaciente: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 4,
+  },
+  cardInfo: { fontSize: 14, color: "#666", marginBottom: 2 },
+  cardObs: {
+    fontSize: 13,
+    color: "#888",
+    fontStyle: "italic",
+    marginTop: 4,
+  },
+  badge: {
+    alignSelf: "flex-start",
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    marginBottom: 8,
+  },
+  badgeTexto: { fontSize: 11, fontWeight: "bold" },
+  acoes: {
+    flexDirection: "row",
+    gap: 10,
+    marginTop: 12,
+  },
+  botaoAcao: {
+    flex: 1,
+    borderRadius: 8,
+    paddingVertical: 10,
+    alignItems: "center",
+  },
+  botaoConfirmar: { backgroundColor: "#27ae60" },
+  botaoCancelar: { backgroundColor: "#e74c3c" },
+  botaoAcaoTexto: { color: "#fff", fontWeight: "bold", fontSize: 14 },
+  botaoDesabilitado: { opacity: 0.5 },
+  botaoSair: {
+    backgroundColor: "rgba(255,255,255,0.2)",
+    borderWidth: 1,
+    borderColor: "#fff",
+    borderRadius: 8,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  botaoSairTexto: { color: "#fff", fontWeight: "bold", fontSize: 14 },
+  vazio: {
+    backgroundColor: "rgba(255,255,255,0.1)",
+    borderRadius: 12,
+    padding: 24,
+    alignItems: "center",
+    marginTop: 20,
+  },
+  vazioTexto: {
+    color: "#fff",
+    fontSize: 14,
+    textAlign: "center",
+    lineHeight: 22,
+  },
+});

@@ -1,0 +1,12 @@
+export { styles as consultaCardStyles } from "./consultaCard.styles";
+export { styles as homeScreenStyles } from "./homeScreen.styles";
+export { styles as loginMedicoStyles } from "./loginMedico.styles";
+export { styles as loginPacienteStyles } from "./loginPaciente.styles";
+export { styles as cadastroMedicoStyles } from "./cadastroMedico.styles";
+export { styles as cadastroPacienteStyles } from "./cadastroPaciente.styles";
+export { styles as perfilMedicoStyles } from "./perfilMedico.styles";
+export { styles as consultasMedicoStyles } from "./consultasMedico.styles";
+export { styles as minhasConsultasStyles } from "./minhasConsultas.styles";
+export { styles as agendarConsultaStyles } from "./agendarConsulta.styles";
+export { styles as escolhaMedicoStyles } from "./escolhaMedico.styles";
+export { styles as escolhaEspecialidadeStyles } from "./escolhaEspecialidade.styles";
