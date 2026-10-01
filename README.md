@@ -117,6 +117,9 @@ npm run build:ios
 [Build Android no Expo](https://expo.dev/accounts/joao-baldini/projects/sistema-consultas-mobile/builds/d666060c-5c51-444c-971a-e32e48c458d3),
 enviado com o perfil `preview`. O APK e o QR Code do dashboard serão registrados
 aqui ao terminar o build.
+O build está aguardando a fila gratuita do EAS; o download do APK e o print do
+QR Code ainda estão pendentes de conclusão da compilação, independentemente
+da disponibilidade de um aparelho Android.
 Para instalar, abra o link do build no Android, baixe o APK e permita
 instalação de apps desconhecidos apenas para o instalador usado. Depois abra
 **Sistema de Consultas**, aguarde a conexão e use as credenciais abaixo.
@@ -156,9 +159,10 @@ logins foram testados no frontend web usando o backend publicado.
 ![Login do paciente usando o Render](docs/login-paciente-render.png)
 
 **Não tenho acesso a um dispositivo Android.** Por isso, a instalação do APK
-e os testes de login no celular físico estão pendentes. Todas as etapas que
-independem do aparelho serão entregues, incluindo o APK e o print do QR Code
-do dashboard assim que o EAS terminar a compilação. Os testes no navegador
+e os testes de login no celular físico estão pendentes. As etapas que
+independem do aparelho foram configuradas e testadas; o build do APK foi enviado
+ao EAS. A inclusão do APK e do print do QR Code do dashboard aguarda a conclusão
+desse build. Os testes no navegador
 não comprovam a instalação e execução do APK no celular.
 
 O Expo foi atualizado para o patch compatível `~54.0.37`, e foram aplicadas
