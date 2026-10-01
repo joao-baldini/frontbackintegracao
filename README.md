@@ -114,7 +114,8 @@ npm run build:aab
 npm run build:ios
 ```
 
-O APK e o QR Code do dashboard serão registrados aqui ao terminar o build.
+O APK e o QR Code do dashboard serão registrados aqui ao terminar o build
+com o perfil `preview`.
 Para instalar, abra o link do build no Android, baixe o APK e permita
 instalação de apps desconhecidos apenas para o instalador usado. Depois abra
 **Sistema de Consultas**, aguarde a conexão e use as credenciais abaixo.
@@ -145,4 +146,18 @@ Mudanças no frontend exigem um novo APK; incremente a versão e `versionCode`.
 - [ ] Alterações finais commitadas e enviadas ao GitHub.
 
 Validação local: 3 testes Maven aprovados, TypeScript sem erros e exportação
-web concluída. Os endpoints publicados foram verificados por HTTP.
+web concluída. Os endpoints publicados foram verificados por HTTP, e os dois
+logins foram testados no frontend web usando o backend publicado.
+
+![Login do médico usando o Render](docs/login-medico-render.png)
+
+![Login do paciente usando o Render](docs/login-paciente-render.png)
+
+A instalação em um Android físico deve ser confirmada separadamente: os
+testes no navegador não comprovam a instalação e execução do APK no celular.
+
+O Expo foi atualizado para o patch compatível `~54.0.37`, e foram aplicadas
+correções de dependências sem alterar a versão principal do SDK. O `npm audit`
+passou de 28 alertas (2 críticos) para 12 (10 moderados e 2 altos, nenhum crítico).
+A atualização das ferramentas transitivas restantes permanece pendente para
+uso em produção; algumas correções exigem migração de versão principal do Expo.
