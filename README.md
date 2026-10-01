@@ -144,7 +144,7 @@ Mudanças no frontend exigem um novo APK; incremente a versão e `versionCode`.
 - [ ] APK instalado e testado em um celular Android físico.
 - [ ] Login no APK com o backend Render.
 - [ ] Print do QR Code do dashboard no README.
-- [ ] Alterações finais commitadas e enviadas ao GitHub.
+- [x] Frontend, backend, configuração de deploy e documentação commitados e enviados ao GitHub.
 
 Validação local: 3 testes Maven aprovados, TypeScript sem erros, 18/18 checks
 do Expo Doctor aprovados e exportações Android e web concluídas. Os endpoints
@@ -155,9 +155,11 @@ logins foram testados no frontend web usando o backend publicado.
 
 ![Login do paciente usando o Render](docs/login-paciente-render.png)
 
-A instalação em um Android físico está pendente porque não há aparelho Android
-disponível para o teste. Os testes no navegador não comprovam a instalação e
-execução do APK no celular.
+**Não tenho acesso a um dispositivo Android.** Por isso, a instalação do APK
+e os testes de login no celular físico estão pendentes. Todas as etapas que
+independem do aparelho serão entregues, incluindo o APK e o print do QR Code
+do dashboard assim que o EAS terminar a compilação. Os testes no navegador
+não comprovam a instalação e execução do APK no celular.
 
 O Expo foi atualizado para o patch compatível `~54.0.37`, e foram aplicadas
 correções de dependências sem alterar a versão principal do SDK. O `npm audit`
