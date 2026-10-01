@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: backend-consultas-joao-baldini
+    runtime: docker
+    plan: free
+    region: ohio
+    branch: main
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: JAVA_TOOL_OPTIONS
+        value: -XX:MaxRAMPercentage=70.0

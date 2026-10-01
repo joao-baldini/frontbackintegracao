@@ -15,7 +15,7 @@ const BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? `http://${hostPadrao}:8080`;
 
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 10000,
+  timeout: 15000,
   headers: {
     "Content-Type": "application/json",
   },
@@ -32,7 +32,7 @@ export function isNetworkError(error: unknown): boolean {
 
 export async function healthCheck(): Promise<boolean> {
   try {
-    await axios.get(`${BASE_URL}/health`, { timeout: 3000 });
+    await axios.get(`${BASE_URL}/health`, { timeout: 8000 });
     return true;
   } catch {
     return false;
