@@ -10,11 +10,17 @@
     },
     "preview": {
       "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://backend-consultas-joao-baldini-hxip.onrender.com"
+      },
       "android": {
         "buildType": "apk"
       }
     },
     "production": {
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://backend-consultas-joao-baldini-hxip.onrender.com"
+      },
       "android": {
         "buildType": "app-bundle"
       }

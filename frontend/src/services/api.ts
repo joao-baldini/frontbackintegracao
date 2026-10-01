@@ -1,17 +1,14 @@
 import axios, { AxiosError } from "axios";
-import { Platform } from "react-native";
 
 /**
  * BASE_URL aponta para o backend Spring Boot.
  *
- * ATENÇÃO - dependendo de onde o app está rodando:
- * - Expo Web (navegador) → localhost funciona normalmente
- * - iOS Simulator        → localhost funciona normalmente
- * - Android Emulator     → use 10.0.2.2 no lugar de localhost
- * - Dispositivo físico   → use o IP da sua máquina (ex: 192.168.1.100)
+ * O padrão é o serviço publicado no Render pessoal.
+ * Para desenvolvimento local, defina EXPO_PUBLIC_API_URL em .env.local
+ * (localhost no navegador, 10.0.2.2 no emulador Android ou IP do PC no celular).
  */
-const hostPadrao = Platform.OS === "android" ? "10.0.2.2" : "localhost";
-const BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? `http://${hostPadrao}:8080`;
+const BASE_URL = process.env.EXPO_PUBLIC_API_URL ??
+  "https://backend-consultas-joao-baldini-hxip.onrender.com";
 
 const api = axios.create({
   baseURL: BASE_URL,

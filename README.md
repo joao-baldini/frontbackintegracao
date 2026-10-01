@@ -35,12 +35,12 @@ npm ci
 npm run web
 ```
 
-Para o Expo Go ou emulador, use `npm start`. A URL padrão da API é
-`http://localhost:8080` no navegador e simulador iOS, e
-`http://10.0.2.2:8080` no emulador Android. Em um dispositivo físico, crie
-`frontend/.env.local` com `EXPO_PUBLIC_API_URL=http://IP_DA_MAQUINA:8080`
-(o telefone e a máquina devem estar na mesma rede). Reinicie o Expo após
-alterar essa variável. Há um modelo em `frontend/.env.example`.
+Para o Expo Go ou emulador, use `npm start`. A URL padrão é o backend
+publicado no Render pessoal, também usada pelo APK. Para usar a API local,
+crie `frontend/.env.local` com `EXPO_PUBLIC_API_URL=http://localhost:8080`
+no navegador/simulador iOS, `http://10.0.2.2:8080` no emulador Android ou
+`http://IP_DA_MAQUINA:8080` no celular físico na mesma rede Wi-Fi.
+Reinicie o Expo após alterar a variável. Há um modelo em `frontend/.env.example`.
 
 ## Estrutura e verificação
 
@@ -62,3 +62,87 @@ npx expo export --platform web
 Após iniciar ambos, a tela inicial usa `/health` para indicar se a API está
 online. Os fluxos de paciente e médico usam os endpoints acima para cadastro,
 consulta, agendamento, confirmação e cancelamento.
+
+## Deploy - aula de 29/09/2026
+
+### Backend
+
+Hospedado na conta pessoal do Render:
+[backend-consultas-joao-baldini](https://backend-consultas-joao-baldini-hxip.onrender.com).
+[Painel do serviço](https://dashboard.render.com/web/srv-dav93cm7bikc73f84tng).
+
+Configuração versionada em `render.yaml`: Docker, Java 17, plano Free,
+região Ohio, diretório `backend`, branch `main`, health check `/health` e
+deploy automático a cada push. O `Dockerfile` usa build em dois estágios.
+
+| Endpoint | Resultado verificado em 01/10/2026 |
+|---|---|
+| `GET /health` | HTTP 200, `{"status":"UP"}` |
+| `GET /medicos` | HTTP 200, 5 médicos |
+| `GET /pacientes` | HTTP 200, 5 pacientes |
+| `GET /especialidades` | HTTP 200, 7 especialidades |
+| `GET /consultas` | HTTP 200, 6 consultas |
+| `GET /medicos/crm/789456` | Dr. Roberto Silva |
+| `GET /pacientes/cpf/12345678901` | Maria Silva |
+
+> O plano Free suspende o serviço após inatividade. A primeira requisição
+> pode demorar 60 segundos ou mais. Se a tela inicial mostrar indisponibilidade,
+> aguarde e toque em **Tentar novamente**. O cliente usa timeout de 15 segundos,
+> e a verificação inicial usa 8 segundos.
+>
+> O H2 usa armazenamento efêmero no Render. Reinicializações e novos deploys
+> podem apagar alterações; o `DataLoader` restaura os dados fictícios de exemplo
+> sem duplicar tabelas já preenchidas. Para persistência em produção, use um
+> banco externo. Este projeto demonstra acesso por CRM/CPF com dados fictícios.
+
+![Backend publicado no Render pessoal](docs/render-deploy.png)
+
+### Frontend - APK Android
+
+Projeto EAS: [@joao-baldini/sistema-consultas-mobile](https://expo.dev/accounts/joao-baldini/projects/sistema-consultas-mobile).
+O perfil `preview` de `frontend/eas.json` gera um APK de distribuição interna;
+`production` gera AAB. Ambos usam explicitamente a URL do Render acima.
+O app tem pacote `com.joaobaldini.sistemaconsultas`, versão `1.0.0`,
+`versionCode: 1` e projeto EAS `60b88e14-8640-4a2e-81da-1f43da874328`.
+
+```powershell
+cd frontend
+npx eas-cli login
+npm run build:apk
+# Opcional, para publicação futura nas lojas:
+npm run build:aab
+npm run build:ios
+```
+
+O APK e o QR Code do dashboard serão registrados aqui ao terminar o build.
+Para instalar, abra o link do build no Android, baixe o APK e permita
+instalação de apps desconhecidos apenas para o instalador usado. Depois abra
+**Sistema de Consultas**, aguarde a conexão e use as credenciais abaixo.
+Mudanças no frontend exigem um novo APK; incremente a versão e `versionCode`.
+
+### Credenciais fictícias de teste
+
+| Perfil | Campo | Valor |
+|---|---|---|
+| Médico - Dr. Roberto Silva | CRM | `789456` |
+| Médico - Dra. Ana Ferreira | CRM | `123789` |
+| Médico - Dr. Carlos Mendes | CRM | `456123` |
+| Paciente - Maria Silva | CPF | `12345678901` |
+| Paciente - João Santos | CPF | `98765432100` |
+| Paciente - Ana Costa | CPF | `11122233344` |
+
+### Checklist da entrega
+
+- [x] Backend publicado na conta pessoal do Render e `/health` respondendo.
+- [x] Seed completo de especialidades, médicos, pacientes e consultas.
+- [x] `api.ts` apontando por padrão para a URL própria do Render.
+- [x] `app.json` com pacote Android, `versionCode`, splash e projeto EAS.
+- [x] `eas.json` com perfis preview/APK e production/AAB.
+- [ ] Build Android finalizado no EAS.
+- [ ] APK instalado e testado em um celular Android físico.
+- [ ] Login no APK com o backend Render.
+- [ ] Print do QR Code do dashboard no README.
+- [ ] Alterações finais commitadas e enviadas ao GitHub.
+
+Validação local: 3 testes Maven aprovados, TypeScript sem erros e exportação
+web concluída. Os endpoints publicados foram verificados por HTTP.
