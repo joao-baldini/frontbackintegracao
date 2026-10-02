@@ -115,11 +115,28 @@ npm run build:ios
 ```
 
 [Build Android no Expo](https://expo.dev/accounts/joao-baldini/projects/sistema-consultas-mobile/builds/d666060c-5c51-444c-971a-e32e48c458d3),
-enviado com o perfil `preview`. O APK e o QR Code do dashboard serão registrados
-aqui ao terminar o build.
-O build está aguardando a fila gratuita do EAS; o download do APK e o print do
-QR Code ainda estão pendentes de conclusão da compilação, independentemente
-da disponibilidade de um aparelho Android.
+concluído com sucesso (**FINISHED / Succeeded**) em **01/10/2026 às 16h25,
+horário de Brasília**, com o perfil `preview`. Verificado em 02/10/2026.
+
+**[Baixar APK Android - Sistema de Consultas 1.0.0](https://expo.dev/artifacts/eas/r9KODIfjXHtFX70z6sWl6ZvvZt9B-gNJmaXE9on2r3k.apk)**
+
+- Tamanho: 65.687.850 bytes (aproximadamente 62,6 MiB).
+- Pacote: `com.joaobaldini.sistemaconsultas`; versão `1.0.0`; `versionCode: 1`.
+- Código compilado: commit `33055eb0a5ff47eef371cae01d1c38600e3b1bf4`.
+- SHA-256 do arquivo baixado: `AA882A2ED82820B06C51E43AE908D4A9454576CB672D100070CF3143AE211A13`.
+- O APK foi baixado e teve a integridade ZIP verificada, com manifesto Android,
+  arquivos DEX e bundle contendo a URL do backend pessoal no Render.
+
+![Build Android concluído no Expo](docs/eas-build-concluido.png)
+
+#### QR Code do build - Expo Dashboard / EAS
+
+![QR Code do APK no dashboard Expo](docs/qrcode-eas-build.png)
+
+Este é o print do QR Code exibido pelo botão **Install** do build concluído no
+dashboard do Expo. Ele abre a página de instalação do APK e não depende do Expo Go
+ou do computador ligado.
+
 Para instalar, abra o link do build no Android, baixe o APK e permita
 instalação de apps desconhecidos apenas para o instalador usado. Depois abra
 **Sistema de Consultas**, aguarde a conexão e use as credenciais abaixo.
@@ -143,10 +160,10 @@ Mudanças no frontend exigem um novo APK; incremente a versão e `versionCode`.
 - [x] `api.ts` apontando por padrão para a URL própria do Render.
 - [x] `app.json` com pacote Android, `versionCode`, splash e projeto EAS.
 - [x] `eas.json` com perfis preview/APK e production/AAB.
-- [ ] Build Android finalizado no EAS.
+- [x] Build Android finalizado no EAS e APK disponível para download.
 - [ ] APK instalado e testado em um celular Android físico.
 - [ ] Login no APK com o backend Render.
-- [ ] Print do QR Code do dashboard no README.
+- [x] Print do QR Code do dashboard no README.
 - [x] Frontend, backend, configuração de deploy e documentação commitados e enviados ao GitHub.
 
 Validação local: 3 testes Maven aprovados, TypeScript sem erros, 18/18 checks
@@ -159,11 +176,11 @@ logins foram testados no frontend web usando o backend publicado.
 ![Login do paciente usando o Render](docs/login-paciente-render.png)
 
 **Não tenho acesso a um dispositivo Android.** Por isso, a instalação do APK
-e os testes de login no celular físico estão pendentes. As etapas que
-independem do aparelho foram configuradas e testadas; o build do APK foi enviado
-ao EAS. A inclusão do APK e do print do QR Code do dashboard aguarda a conclusão
-desse build. Os testes no navegador
-não comprovam a instalação e execução do APK no celular.
+e os testes de login no celular físico estão pendentes. Todas as entregas que
+independem do aparelho foram concluídas: publicação do backend, configuração do
+frontend, build Android no EAS, APK para download, print do QR Code e documentação
+no GitHub. Os testes no navegador e a verificação do arquivo não comprovam a
+instalação e execução do APK no celular.
 
 O Expo foi atualizado para o patch compatível `~54.0.37`, e foram aplicadas
 correções de dependências sem alterar a versão principal do SDK. O `npm audit`
